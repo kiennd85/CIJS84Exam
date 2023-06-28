@@ -10,8 +10,8 @@ const ToDo = () => {
     <>
       <div className="containerkn">
         <div>
-          <div>#todo</div>
-          <div>
+          <div className="title">#todo</div>
+          <div className="BoxButton">
             <CustomButton
               btnName="All"
               handleClick={(e) => {
