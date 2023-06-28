@@ -56,7 +56,6 @@ const useHook = () => {
 
   //Button Remove
   const btnRemove = (e, itemId) => {
-    console.log(222);
     const listTaskClone = JSON.parse(JSON.stringify(listTask));
     const newList = listTaskClone.filter((item) => item.id != itemId);
     setListTask(newList);
