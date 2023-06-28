@@ -5,11 +5,11 @@ import './ToDo.css';
 import useHook from './useHook';
 
 const ToDo = () => {
-  const { listTask, onChange, valueInput, onChangeInput, onClick, handleClick, btnRemove } = useHook();
+  const { listTask, onChange, valueInput, onChangeInput, onClick, handleClick, btnRemove, filter, btnRemoveAll } = useHook();
   return (
     <>
       <div className="containerkn">
-        <div>
+        <div style={{ width: '350px' }}>
           <div className="title">#todo</div>
           <div className="BoxButton">
             <CustomButton
@@ -32,31 +32,40 @@ const ToDo = () => {
             ></CustomButton>
           </div>
 
-          <div className="BoxInput">
-            <div>
-              <CustomInput
-                valueInput={valueInput}
-                onChangeInput={onChangeInput}
-              ></CustomInput>
+          {filter != 'Completed' && (
+            <div className="BoxInput">
+              <div>
+                <CustomInput
+                  valueInput={valueInput}
+                  onChangeInput={onChangeInput}
+                ></CustomInput>
+              </div>
+              <div>
+                <button
+                  className="ButtonAdd"
+                  type="button"
+                  onClick={onClick}
+                >
+                  Add
+                </button>
+              </div>
             </div>
-            <div>
-              <button
-                className="ButtonAdd"
-                type="button"
-                onClick={onClick}
-              >
-                Add
-              </button>
-            </div>
-          </div>
+          )}
 
           <div>
             <CustomList
+              filter={filter}
               listTask={listTask}
               onChange={onChange}
               btnRemove={btnRemove}
             ></CustomList>
           </div>
+
+          {filter === 'Completed' && (
+            <div className="BtnRemoveAll">
+              <button onClick={btnRemoveAll}>Delete all</button>
+            </div>
+          )}
         </div>
       </div>
     </>

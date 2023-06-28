@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 let listTaskDefault = [
   { id: 1, name: 'Code Home work 1', isCheck: false },
@@ -10,6 +10,7 @@ let listUpdate = [...listTaskDefault];
 const useHook = () => {
   const [listTask, setListTask] = useState(listTaskDefault);
   const [valueInput, setValueInput] = useState('');
+  const [filter, setFilter] = useState('All');
 
   //Update task complete chưa
   const onChange = (e, itemId) => {
@@ -54,18 +55,21 @@ const useHook = () => {
     }
   };
 
-  //Button filler
-  const handleClick = (e, btnName) => {
+  useEffect(() => {
     const listTaskClone = JSON.parse(JSON.stringify(listUpdate));
-    if (btnName == 'All') {
+    if (filter == 'All') {
       setListTask(listTaskClone);
-    } else if (btnName == 'Active') {
+    } else if (filter == 'Active') {
       const newList = listTaskClone.filter((item) => item.isCheck == false);
       setListTask(newList);
-    } else if (btnName == 'Completed') {
+    } else if (filter == 'Completed') {
       const newList = listTaskClone.filter((item) => item.isCheck == true);
       setListTask(newList);
     }
+  }, [filter]);
+  //Button filler
+  const handleClick = (e, btnName) => {
+    setFilter(btnName);
   };
 
   //Button Remove
@@ -75,7 +79,15 @@ const useHook = () => {
     setListTask(newList);
     listUpdate = [...newList];
   };
-  return { listTask, onChange, valueInput, onChangeInput, onClick, handleClick, btnRemove };
+  //Button Remove All
+  const btnRemoveAll = () => {
+    const listTaskClone = JSON.parse(JSON.stringify(listUpdate));
+    const newList = listTaskClone.filter((item) => item.isCheck == false);
+    setListTask(newList);
+    listUpdate = [...newList];
+  };
+
+  return { listTask, onChange, valueInput, onChangeInput, onClick, handleClick, btnRemove, filter, btnRemoveAll };
 };
 
 export default useHook;

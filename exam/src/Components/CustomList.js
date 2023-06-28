@@ -1,4 +1,4 @@
-const CustomList = ({ listTask, onChange, btnRemove }) => {
+const CustomList = ({ listTask, onChange, btnRemove, filter }) => {
   return (
     <div>
       {listTask.map((item) => (
@@ -17,15 +17,20 @@ const CustomList = ({ listTask, onChange, btnRemove }) => {
             ></input>
             <label>{item?.name}</label>
           </div>
-          <div style={{ marginLeft: '50px' }}>
-            <button
-              onClick={(event) => {
-                btnRemove(event, item?.id);
-              }}
-            >
-              <i className="fa-solid fa-trash"></i>
-            </button>
-          </div>
+          {filter === 'Completed' && (
+            <div style={{ marginLeft: '50px' }}>
+              <button
+                onClick={(event) => {
+                  btnRemove(event, item?.id);
+                }}
+              >
+                <i
+                  className="fa-solid fa-trash"
+                  style={{ color: 'red', border: 'white' }}
+                ></i>
+              </button>
+            </div>
+          )}
         </div>
       ))}
     </div>

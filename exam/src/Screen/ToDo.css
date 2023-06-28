@@ -19,14 +19,13 @@
   background-color: blue;
   border-radius: 5px;
   border: 0 white;
-  width: 60px;
+  width: 80px;
   height: 30px;
 }
 
 .BoxInput {
   display: flex;
-
-  margin: 10px 0 10px 0;
+  margin: 30px 0 30px 0;
 }
 
 .BoxButton {
@@ -37,7 +36,7 @@
 }
 
 .title {
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   text-align: center;
   font-weight: bold;
 }
@@ -45,11 +44,28 @@
 .btnFilter {
   width: 33%;
 }
+
 .btnFilter button {
   background-color: white;
   width: 100%;
   border: white;
+  font-size: 1.1rem;
 }
 .btnFilter button:hover {
-  background-color: aqua;
+  background-color: beige;
+}
+
+.BtnRemoveAll button {
+  width: 100px;
+  height: 35px;
+  background-color: red;
+  color: white;
+  border: white;
+  border-radius: 5px;
+  margin: 20px 0 0 0;
+}
+
+.BtnRemoveAll {
+  display: flex;
+  flex-direction: row-reverse;
 }
