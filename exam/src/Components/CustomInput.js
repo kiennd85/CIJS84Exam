@@ -7,6 +7,7 @@ const CustomInput = ({ valueInput, onChangeInput }) => {
           type="text"
           value={valueInput}
           onChange={onChangeInput}
+          placeholder="add details"
         />
       </div>
     </div>
