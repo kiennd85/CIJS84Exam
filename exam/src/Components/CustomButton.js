@@ -1,8 +1,8 @@
 const CustomButton = ({ btnName, handleClick }) => {
   return (
-    <div>
+    <div className="btnFilter">
       <button
-        style={{ width: '80px', backgroundColor: 'white', border: 'white' }}
+        // style={{ width: '80px', backgroundColor: 'white', border: 'white' }}
         type="button"
         onClick={handleClick}
       >
