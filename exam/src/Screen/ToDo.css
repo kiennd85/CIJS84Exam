@@ -1,0 +1,26 @@
+* {
+  box-sizing: border-box;
+  /* border: 1px solid; */
+}
+
+.containerkn {
+  display: flex;
+  justify-content: center;
+}
+
+.TaskList {
+  display: flex;
+}
+
+.ButtonAdd {
+  color: white;
+  background-color: blue;
+  border-radius: 5px;
+  border: 0 white;
+  width: 60px;
+  height: 30px;
+}
+
+.BoxInput {
+  display: flex;
+}
